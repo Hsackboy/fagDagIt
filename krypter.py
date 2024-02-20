@@ -56,7 +56,7 @@ def dekrypter(filbane, forskyvning=3):
 
 
 if __name__ == "__main__":
-    dekrypter("test20.txt", 3)
+    dekrypter("test.txt", 3)
 FORSKJØVET_ALFABET = {
     'A': 'D', 
     'B': 'E', 
