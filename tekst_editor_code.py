@@ -16,11 +16,19 @@ def opprettFil(filbane):
     tekst =kB.betterInput("str","Hva skal stå i filen? ","Dette var ikke rett")
     fB.skrivTilNyFil(filbane,tekst,safe=False)
         
-
+def tell_tegn(filbane,vis=True):
+    tekst = fB.lesHelFil(filbane)
+    tekst = tekst.replace("\n","")
+    tekst = tekst.replace("\t","")
+    *tekst, = tekst
+    if vis:
+        print("antall tegn er: ",len(tekst))
+    return len(tekst)
 
 
 if __name__ == "__main__":
-    tekst_editor ("test.txt")
+    # tekst_editor ("test.txt")
+    tell_tegn ("test.txt")
     
 
 
