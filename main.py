@@ -14,7 +14,7 @@ if valg=="velge":
     if valg=="redigere":
         tekst_editor(filbane)
     elif valg == "ord":
-        pass # Legg kode her
+        tell_ord(filbane)
     else:
         tell_tegn(filbane)
 else:
