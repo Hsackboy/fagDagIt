@@ -2,6 +2,7 @@ from filFinner import *
 from tekst_editor_code import *
 import os 
 import kultBiblotek2 as kB
+from krypter import *
 
 startFilbane = os.getcwd()
 
@@ -10,13 +11,17 @@ valg = kB.betterInput("str","Vil du velge en fil eller opprette en ny? (velge/ny
 
 if valg=="velge":
     filbane = finnFil(startFilbane)
-    valg = kB.betterInput("str","Vil du redigere filen, telle ord eller telle tegn? (redigere/ord/tegn) ","",forventet=["redigere","ord","tegn"])
+    valg = kB.betterInput("str","Vil du redigere filen, telle ord eller telle tegn? (redigere/ord/tegn/kyrptere/dekryptere) ","",forventet=["redigere","ord","tegn","kyrptere","dekryptere"])
     if valg=="redigere":
         tekst_editor(filbane)
     elif valg == "ord":
         tell_ord(filbane)
-    else:
+    elif valg=="tegn":
         tell_tegn(filbane)
+    elif valg=="kyrptere":
+        pass
+    elif valg=="dekryptere":
+        dekrypter(filbane)
 else:
     opprettFil(startFilbane)
     
