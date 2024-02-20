@@ -1,4 +1,4 @@
-from kultBiblotek import *
+from kultBiblotek2 import *
 import csv
 import json
 
