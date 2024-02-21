@@ -11,15 +11,15 @@ valg = kB.betterInput("str","Vil du velge en fil eller opprette en ny? (velge/ny
 
 if valg=="velge":
     filbane = finnFil(startFilbane)
-    valg = kB.betterInput("str","Vil du redigere filen, telle ord eller telle tegn? (redigere/ord/tegn/kyrptere/dekryptere) ","",forventet=["redigere","ord","tegn","kyrptere","dekryptere"])
+    valg = kB.betterInput("str","Vil du redigere filen, telle ord eller telle tegn? (redigere/ord/tegn/kryptere/dekryptere) ","",forventet=["redigere","ord","tegn","kryptere","dekryptere"])
     if valg=="redigere":
         tekst_editor(filbane)
     elif valg == "ord":
         tell_ord(filbane)
     elif valg=="tegn":
         tell_tegn(filbane)
-    elif valg=="kyrptere":
-        pass
+    elif valg=="kryptere":
+        kryptert(filbane)
     elif valg=="dekryptere":
         dekrypter(filbane)
 else:

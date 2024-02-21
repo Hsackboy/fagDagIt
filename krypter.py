@@ -108,5 +108,5 @@ def kryptert(filbane):
 
 
 if __name__ == "__main__":
-    # kryptert("hei.txt")
+    kryptert("hei.txt")
     dekrypter("hei.txt")
