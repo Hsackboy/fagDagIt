@@ -31,32 +31,6 @@ ALFABET = [
 ]
 
 
-def dekrypter(filbane, forskyvning=3):
-    tekst = ""
-    with open(filbane, encoding="utf-8") as fil:
-        tekst = fil.read()
-        fil.close()
-    (*tekst,) = tekst
-    dekryptertTekst = ""
-    for i in range(len(tekst)):
-        if tekst[i].lower() in ALFABET:
-            posisjon = ALFABET.index(tekst[i].lower()) - forskyvning
-            if posisjon >= len(ALFABET):
-                posisjon += -len(ALFABET)
-            dekryptertTekst += ALFABET[posisjon]
-        else:
-            dekryptertTekst += tekst[i]
-
-    print(dekryptertTekst)
-
-    with open(filbane, "w", encoding="utf-8") as fil:
-        fil.write(dekryptertTekst)
-        fil.flush()
-        fil.close()
-
-
-if __name__ == "__main__":
-    dekrypter("test.txt", 3)
 FORSKJØVET_ALFABET = {
     'A': 'D', 
     'B': 'E', 
@@ -81,13 +55,39 @@ FORSKJØVET_ALFABET = {
     'U': 'X', 
     'V': 'Y', 
     'W': 'Z', 
-    'X': 'Å', 
-    'Y': 'Æ', 
-    'Z': 'Ø', 
-    'Å': 'B', 
-    'Æ': 'C', 
-    'Ø': 'D'
+    'X': 'Æ', 
+    'Y': 'Ø', 
+    'Z': 'Å', 
+    'Æ': 'A', 
+    'Ø': 'B', 
+    'Å': 'C'
 }
+
+
+def dekrypter(filbane, forskyvning=3):
+    tekst = ""
+    with open(filbane, encoding="utf-8") as fil:
+        tekst = fil.read()
+        fil.close()
+    (*tekst,) = tekst
+    dekryptertTekst = ""
+    for i in range(len(tekst)):
+        if tekst[i].lower() in ALFABET:
+            posisjon = ALFABET.index(tekst[i].lower())  -forskyvning
+            if posisjon >= len(ALFABET):
+                posisjon += -len(ALFABET)
+            dekryptertTekst += ALFABET[posisjon]
+        else:
+            dekryptertTekst += tekst[i]
+
+    print(dekryptertTekst)
+
+    with open(filbane, "w", encoding="utf-8") as fil:
+        fil.write(dekryptertTekst)
+        fil.flush()
+        fil.close()
+
+
 
 def kryptert(filbane):
     krypter_tekst = ""
@@ -101,7 +101,12 @@ def kryptert(filbane):
                 except:
                     krypter_tekst += tegn
     print(krypter_tekst)
+    with open(filbane, "w", encoding="utf-8") as fil:
+        fil.write(krypter_tekst)
+        fil.flush()
+        fil.close()
 
 
 if __name__ == "__main__":
-    kryptert("test.txt")
+    # kryptert("hei.txt")
+    dekrypter("hei.txt")
